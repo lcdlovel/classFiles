@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        canvas{background-color: azure}
+
+    </style>
+</head>
+<canvas id="c3" width="500" height="400"></canvas>
+<body>
+<script>
+   var ctx=c3.getContext("2d");
+////    ctx.beginPath();
+////    ctx.moveTo(50,50);
+////    ctx.lineTo(50,350);
+////    ctx.lineTo(350,200);
+////    ctx.closePath();
+////    ctx.stroke();
+//    ctx.beginPath();
+//    ctx.moveTo(10,390);
+//    ctx.lineTo(480,390);
+//    ctx.lineTo(470,380);
+//    ctx.moveTo(480,390);
+//    ctx.lineTo(470,400);
+//    ctx.strokeStyle="green";
+//    ctx.lineWidth=3;
+//    ctx.lineJoin="round";
+//    ctx.stroke();
+//    ctx.beginPath();
+//    ctx.moveTo(10,390);
+//    ctx.lineTo(10,10);
+//    ctx.lineTo(20,20);
+//    ctx.moveTo(10,10);
+//    ctx.lineTo(0,20);
+//    ctx.strokeStyle="red";
+//    ctx.lineWidth=3;
+//    ctx.lineJoin="round";
+//    ctx.stroke();
+    ctx.beginPath();
+    ctx.arc(250,200,100,0,360*Math.PI/180);
+    ctx.lineWidth=10;
+    ctx.strokeStyle="gainsboro";
+    ctx.stroke();
+    var a=-90,b=1;
+    var timer=setInterval(function(){
+        ctx.beginPath();
+        ctx.arc(250,200,100,-90*Math.PI/180,(a=a+10)*Math.PI/180);
+        ctx.lineWidth=10;
+        ctx.strokeStyle="blue";
+        ctx.stroke();
+        if(a>270){
+            clearInterval(timer)
+        };
+    },1000);
+   var time2=setInterval(function(){
+       ctx.clearRect(200,150,105,80);
+       ctx.textBaseline="middle";
+       ctx.lineWidth=1;
+       ctx.font = "50px SimHei";
+       ctx.strokeStyle="blue";
+       ctx.strokeText(b+"%",220,200);
+       b++;
+       if(b>100)clearInterval(time2);
+    },360)
+
+
+
+
+
+</script>
+</body>
+</html>

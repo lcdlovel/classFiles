@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+   <h1>h5练习:--播放背景音乐</h1>
+   <audio src="res/bg.mp3" id="bgMusic"></audio>
+   <input type="checkbox" id="bgSwitch"/>
+   <script>
+     //1:获取复选框按钮
+     var bgSwitch = document.getElementById("bgSwitch")
+     //2:获取音频元素
+     var bgMusic = document.getElementById("bgMusic");
+     //3:为复选框绑定事件  onchange
+     bgSwitch.onchange = function() {
+         //4:判断当前复选框是否处理选中状态
+         if(this.checked){
+             //1:音量初始值为0
+             bgMusic.volume = 0;
+             //2:播放
+             bgMusic.play();
+             //3:创建定时器
+             var t = setInterval(function(){
+                 //4:修改音量 + 0.1
+                 bgMusic.volume += 0.1;
+                 //5:判断音量 > 0.9
+                 if(bgMusic.volume>0.9) {
+                     //停止定时器
+                     clearInterval(t);
+                 }
+             },200);
+
+         }else{
+             bgMusic.pause();
+         }
+         //5:选中 音频元素 play();
+         //6:取消 音频元素 pause();
+     }
+
+
+
+   </script>
+</body>
+</html>

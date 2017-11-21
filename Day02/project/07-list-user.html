@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+ </head>
+ <body>
+	每页显示<input>条
+  <table border="1">
+		<thead>
+			<tr>
+				<th>登录名</th>
+				<th>电话</th>
+				<th>邮箱</th>
+				<th>用户名</th>
+			</tr>
+		</thead>
+		<!-- 显示分页数据信息 -->
+		<tbody id="show-body"></tbody>
+		<!-- 显示分页页码(首页，上一页，下一页，尾页) -->
+		<tfoot id="show-page"></tfoot>
+	</table>
+	<script src="00-common.js"></script>
+	<script>
+		/**
+		 * 网页加载时调用
+		 * 点击 首页时调用
+		 * 点击 上一页时调用
+		 * 点击 下一页时调用
+		 * 点击 尾页时调用
+		 * 参数：currentPage，当前用户想看的页数
+		 */
+		function loadUsers(currentPage){
+			//1、获取 xhr
+			var xhr = getXhr();
+			//2、创建请求
+			var url = "07-list-page.php?currentPage="+currentPage;
+
+			xhr.open("get",url,true);
+			//3、设置回调
+			xhr.onreadystatechange=function(){
+				if(xhr.readyState==4 && xhr.status==200){
+					//1、获取响应数据并且转换成JS数组
+					var list = JSON.parse(xhr.responseText);
+					//2、循环遍历，取出除最后一条数据以外的所有数据
+					var html = "";
+					for(var i=0;i<list.length-1;i++){
+						var user = list[i];
+						html+="<tr>";
+							html+="<td>"+user.uname+"</td>";
+							html+="<td>"+user.phone+"</td>";
+							html+="<td>"+user.email+"</td>";
+							html+="<td>"+user.user_name+"</td>";
+						html+="</tr>";
+					}
+					//3、将 html 显示在 show-body 中
+					$("show-body").innerHTML = html;
+
+					//4、拼 分页的信息 到 tfoot 中
+					//4.1 将 list 中的最后一条数据 取出来(string)
+					var page=list[list.length-1];
+					//4.2 将 最后一条数据 转换成 JS对象
+					var pageObj = JSON.parse(page);
+					//4.3 拼 tr ，td ，a 到 tfoot 中
+					var pageHtml = "<tr>";
+						//1、拼首页信息
+						pageHtml += "<td><a href='javascript:loadUsers(1)'>首页</a></td>";
+						//2、拼上一页
+						pageHtml += "<td><a href='javascript:loadUsers("+pageObj.prePage+")'>上一页</a></td>";
+						//3、拼下一页
+						pageHtml += "<td><a href='javascript:loadUsers("+pageObj.nextPage+")'>下一页</a></td>";
+						//4、拼尾页
+						pageHtml += "<td><a href='javascript:loadUsers("+pageObj.totalPage+")'>尾页</a></td>";
+					pageHtml += "</tr>";
+					$("show-page").innerHTML=pageHtml;
+				}
+			}
+			//4、发送请求
+			xhr.send(null);
+		}
+		window.onload = function(){
+			//网页加载时，将第一页显示给用户看
+			loadUsers(1);
+		}
+	</script>
+ </body>
+</html>

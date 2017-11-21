@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>放大镜</title>
+	<style>
+		#d1{
+			width:400px;
+			height:400px;
+			overflow:hidden;
+			position:relative;
+			border:0.1px solid transparent;
+		}
+		#d2{
+			width:100px;
+			height:100px;
+			display:none;
+			position:absolute;
+			top:175px;left:0;
+			background:#ffa;
+			cursor: move;
+			opacity:0.5;
+			
+		}
+		#d3{
+			display:none;
+			position:relative;
+			top:-390px;
+			left:440px;
+			width:300px;
+			height:300px;
+			background:url("lg/01.jpg") no-repeat;
+		}
+		#d0{
+		position:absolute;
+			top:0;left:0;
+			width:400px;
+			height:350px;
+		opacity: 0;
+			cursor: move;
+		}
+		img{
+			vertical-align:middle;
+			width:350px;
+			height:350px;
+		}
+	</style>
+</head>
+<body>
+	<div id="d1">
+		<img src="md/01.jpg" alt="">
+		<div id="d2"></div>		
+		<div id="d0"></div>		
+	</div>
+	<div id="d3"></div>
+<!--
+	--两块:1.显示在页面的部分
+				 2.放大镜部分(改变背景图的位置)
+	--两个div的特殊作用:
+			d2:滤镜 d0:覆盖在img上的空块(提供坐标)
+		实现的效果:滤镜位置发生改变时 放大镜部分的背景图位置发生改变
+		事件:给d0 绑定事件(mouseover)
+		疑惑:1.不直接把img放在d0里面  
+						假如这样做:
+							滤镜是绝对定位到img上 堆叠在img的上方 
+-->
+</body>
+<script src="jquery.js"></script>
+<script>
+$d1=$("#d1");
+$d2=$("#d2");
+$d3=$("#d3");
+$d0=$("#d0");
+const size=parseFloat($d2.css("width")),
+	    max=$d3.css("width");		
+$d0.hover(()=>{
+	$d2.toggle();
+	$d3.toggle();
+});
+$d0.mousemove(e=>{			
+	var top=e.offsetY-size/2,			//鼠标显示在滤镜中央
+			left=e.offsetX-size/2;
+			console.log(top,left);	//offsetX offsetY 得到坐标
+	if(top<0) top=0
+	else if(top>max) top=max;					
+      if(left<0) left=0;
+      else if(left>max) left=max;  //判断让滤镜只显示在图上
+      $d2.css({top,left});			//让滤镜随鼠标位置改变而改变
+      $d3.css(
+        "backgroundPosition",
+        `-${left*16/7}px -${top*16/7}px`)   //改变放大镜部分的背景图位置
+    });
+</script>
+<!--
+	--疑惑:不直接把img放在d0里面  
+		需要知道的:postion:absolute 之后的影响									
+	-->
+</html>

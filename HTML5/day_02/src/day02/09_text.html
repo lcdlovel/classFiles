@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body{text-align: center}
+        canvas{background: #ddd}
+    </style>
+</head>
+<body>
+    <canvas id="c2" width="500" height="400"></canvas>
+    <script>
+        //1:获取画笔
+        var ctx = c2.getContext("2d");
+        //2:设置字体
+        ctx.textBaseline = "top";
+        ctx.strokeStyle = "red";
+        ctx.font = "30px SimHei";
+        //3:创建文本
+        var str = "Tarena";
+        //4:画左上角
+        var x = 0;
+        var xDirction = 1;
+        var txtWidth = ctx.measureText(str).width;
+        var timer = setInterval(function(){
+            ctx.clearRect(0,0,500,400);
+            x += 10 * xDirction;
+            ctx.strokeText(str,x,0);
+            if(x>500-txtWidth){
+                xDirction = -1;
+            }else if(x<=0){
+                xDirction = 1;
+            }
+        },100);
+
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body{text-align: center}
+        canvas{background: #ddd}
+    </style>
+</head>
+<body>
+    <canvas id="c2" width="500" height="400"></canvas>
+    <script>
+        //1:获取画笔
+        var ctx = c2.getContext("2d");
+        //2:设置字体
+        ctx.textBaseline = "top";
+        ctx.strokeStyle = "red";
+        ctx.font = "30px SimHei";
+        //3:创建文本
+        var str = "Tarena";
+        //4:画左上角
+        ctx.strokeText(str,0,0);
+        //5:获取文字宽度返回对象，对象属性 width
+        var txtWidth = ctx.measureText(str).width;
+        ctx.strokeText(str,500-txtWidth,0);
+
+    </script>
+</body>
+</html>

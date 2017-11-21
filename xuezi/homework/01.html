@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>作业</title>
+	<style>
+	p,div,ul,li{margin:0;padding:0}
+	img{ vertical-align:bottom;
+				}
+/*最外层的div属性设置*/
+	#banner{
+			position:relative;
+			width:1000px;
+			margin:0 auto;
+		}
+/* 左箭头的设置*/
+		#de .s1{
+			display:inline-block;
+			width:35px;
+			height:70px;
+			border-radius:5px;
+			background:#000;
+			opacity:0.3;
+			position:absolute;
+			left:0;top:50%;
+			margin-top:-35px;
+		}
+/*右箭头的设置*/
+		#de .s2{
+			display:inline-block;
+			width:35px;
+			height:70px;
+			border-radius:5px;
+			background:#000;
+			opacity:0.3;
+			position:absolute;
+			right:0;top:50%;
+			transform:translateY(-50%);
+		}
+		#de .s1:hover{
+			opacity:0.15;
+		}
+		#de .s2:hover{
+			opacity:0.15;
+		}
+		#de img{
+			position:absolute;
+			left:0;right:0;top:0;bottom:0;
+			margin:auto;
+		}
+/*小圆点的属性设置*/
+ul{list-style:none;}
+	#circle ul .cir{
+		width:12px;
+		height:12px;
+		border-radius:50%;
+		background:#666;
+		float:left;
+		margin-right:10px;
+	}
+	#circle ul .cir:hover{
+		background:#15D8FB
+	}
+	#circle{
+		position:absolute;
+		left:50%;bottom:5%;
+		margin-left:-44px;
+	}
+	</style>
+</head>
+<body>
+	<div id="banner">
+		<a href="" id="01"><img src="banner1.png"></a>
+		<div id="de">
+			<a href="" class="s1">
+				<img src="arrow-left.png">
+			</a>
+			<a href="" class="s2">
+				<img src="arrow-right.png" alt="">
+			</a>
+		</div>
+		<div id="circle">
+			<ul>
+				<li class="cir"></li>
+				<li class="cir"></li>
+				<li class="cir"></li>
+				<li class="cir"></li>
+			
+			</ul>	
+		</div>
+	</div>
+	
+</body>
+</html>

@@ -1,0 +1,106 @@
+body{
+    width:1410px;
+}
+.logo{
+    position:relative;
+    left:141px;
+    top:38px;
+    width:104px;
+    height:38px;
+    background: url("../image/stars._CB333491017_.png") -117px -30px;
+}
+.login{
+    margin:0 auto;
+    margin-top:50px;
+    height: 580px;
+    width: 80%;
+    border:0.2px solid transparent;
+    background:url("../image/oringe.jpg") no-repeat;
+    background-size: 100% 100%;
+}
+.cover{
+    width:226px;
+    height:170px;
+    background:#FF8500;
+}
+.from01{
+    width: 300px;
+    height:400px;
+    background-color: #ffffff;
+    position:relative;
+    right:63px;
+    top:-74px;
+    padding-left:26px;;
+}
+.from01 p{
+    margin-top:25px;
+    margin-bottom:25px;
+    width:250px;
+    height:40px;
+    border:1px solid #D2D2D2;
+}
+.from01 p>span{
+    display: inline-block;
+    width:45px;
+    height:inherit;
+    background-color: #DDDDDD;
+    position:relative;
+    top:-7px;
+    text-align: center;
+}
+.from01 p>span img{
+    position:relative;
+    top:7px;
+}
+.from01 p>input{
+    height:38px;
+    width:190px;
+    position:relative;
+    right:4px;
+    outline:none;
+    border:0;
+}
+.from01 button{
+    width:250px;
+    height:38px;
+    border-radius:2px;
+    color:#fff;
+    border: 0px;
+    background-color: #FF0036;
+}
+.from01 div:last-child{
+    margin-top:25px;
+    margin-left: 64px;
+}
+.from01 div:last-child li{
+    font-size: 8px;
+    margin:0 5px;
+}
+canvas{
+    background:transparent;
+    margin-left:118px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

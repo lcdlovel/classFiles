@@ -1,0 +1,429 @@
+/*************轮播图部分*****************/
+	div.banners{
+	  width:1410px;
+	  height:300px;
+	  overflow:hidden;
+	  position:relative;
+	}
+	div.banners>.banner{
+		display: block;
+	 position:absolute;
+/*	 transition:all 2s linear;*/
+	} 
+	.banners .banner li{
+		float:left;
+	}
+	.banners .banner li img{
+		width:1410px;
+		height:300px;
+	}
+     .bannersOn{
+		 background-color:#FF8C00
+	 }
+	.lines>.bannerLine{
+		height:3px;
+		background:#9B9B9B
+	}
+	.block{
+		position:absolute;
+		bottom: -50px;
+		height:50px;
+		overflow: hidden;
+		transition:all .3s linear;
+		background:#8D9096;
+	}
+	.block>.bannerBlock>li{
+		height:50px;
+		cursor: pointer;
+	}
+	.block>.bannerBlock>li>p{
+		text-align: center;
+		width:100px;
+		padding:10px 0;
+		margin:0 auto;
+		font-family:'Microsoft Yahei' ;
+		font-size:15px;
+		font-weight: bold;
+		color:#f0f0f0;
+	}
+	.banners>.bannerLeft{
+		display:inline-block;
+		position:absolute;
+		top:45%;
+		cursor: pointer;
+	}
+	.banners>.bannerRight{
+		display:inline-block;
+		position:absolute;
+		right:0;
+		top:45%;
+		cursor: pointer;
+	}
+/*******main 主体的样式*********/
+	.font1{
+			font-family: 'Microsoft Yahei';
+			font-weight: 700;
+			font-size: 18px;
+			color:rgb(51, 51, 51);
+	}
+	.font2{
+			color: #FF8C00;
+	}
+/******good_list的样式***********/
+	.goods_list{
+		margin-top:8px;
+	}
+	.goods_list .left{
+		width:1085px;
+	}
+/*****floor01的样式*************/
+	.floor01{
+		margin-top:10px;
+	}
+	.floor01 .hotgoods{
+			width:345px;
+			height:162px;
+			float:left;
+			margin-right:1px;
+			position:relative;
+			border-right:0.5px solid #DDDDDD;
+		}
+		.floor01 .hotgoods-img{
+			min-width:144px;
+			max-height:134px;
+			position:absolute;
+			right:20px;
+			bottom:0px;
+		}
+		.floor01 .hotgoods .img2{
+			position:absolute;
+			bottom:5px;
+			left:12px
+		}
+		.floor01 .hotgoods .hotgoods-01 div{
+			margin-top:20px;
+			margin-left:20px;
+		}
+		.floor01 .hotgoods .hotgoods-02{
+			font-family:'ArialNormal','Arical';
+			font-weight:400;
+			font-style:normal;
+			font-size:13px;
+			line-height:normal;
+			color:#B12704;
+		}
+		.floor01 .price{
+			font-size: 23px;
+		}
+	div.floor01 .hotgoods .hotgoods-01 .hotgoods-last{
+			position:absolute;
+			bottom:0px;
+			font-size:12px;
+			color:#999999;
+			text-align:left;
+			line-height:20px;
+		}
+	.floor01 .endtime{
+			color: #CCCCCC;
+			font-family: 'Arial Normal', 'Arial';
+			font-weight: 400;
+			font-style: normal;
+			font-size: 13px;
+			text-align: left;
+			line-height: normal;
+	}
+	.floor01 .hotgoods-01 .font1{
+		margin-left:20px;
+	}
+	.floor01 div:nth-child(3) img{
+		margin-left:20px;
+	}
+/******floor01-right的样式******/
+	.floor01-right{
+		width:300px;
+		height:250px;
+		background:#F9F9F9;
+		float:right;
+	}
+/*****floor02-header的样式******/
+	.floor02{
+		margin-top:50px;
+		position:relative;
+		margin-left:-45px;
+	}
+	.floor02-header{
+		margin-left: 35px;
+	}
+	.floor02-header div{
+		float: left;
+	}
+	.floor02 .floor02-header div:nth-child(2){
+		width:1035px;
+		border-bottom:1px solid #e7e7e7;
+	}
+	.floor02 .floor02-header div:nth-child(2) span{
+		font-size:20px;
+		font-weight:700;
+		height:50px;
+		background-color:white;
+		line-height:40px;
+    padding-left: 2px;
+	}
+	.floor02-header img{
+		width:40px;
+		height:40px;
+	}
+
+
+/******floor02-left的样式*******/
+	.floor02-left{
+		margin-left:45px;
+	}
+	.floor02-left .contenAsin{
+		position:relative;
+		text-align:center;
+		width:170px;
+		height:240px;
+		margin-left:10.5px;
+		margin-right:15.5px;
+		float:left;
+		overflow:hidden;
+		opacity:1;	
+	}
+	.floor02-left .defcontenAsin .opacity{
+		display:none;
+		position:absolute;
+		top:-30px;
+		left:5px;
+		border-top-color:transparent;
+		width:240px;
+		height:290px;
+		opacity:0.9;
+		z-index:10;
+		cursor:pointer;
+		text-align:center;
+	}
+	.floor02-left .defcontenAsin .contenAsin p:nth-child(2){
+		margin-top:12px;
+	}
+	.floor02-left .defcontenAsin .contenAsin p:nth-child(2) span.font1{
+		color:rgb(51,51,51);
+		font-family:'Hiragino Sans GB','Microsoft Yahei',Arial,sans-serif;
+		font-size:13px;
+		line-height:19px;
+		font-weight:400;
+	}
+	.floor02 .imgFont{
+		margin-left:45px;
+		width:1072px;
+		height:2px;
+		background: #E7E7E7;
+	}
+
+
+/*****floor03的样式*******/
+	.floor03{
+		margin-top:50px;
+	}
+	.floor03 h1{
+		margin-left:10px;
+	}
+	.floor03 .sortGoogs{
+		position:relative;
+		margin-left:10px;
+		margin-right:15px;
+		margin-top:10px;
+		border-bottom: 1px solid #E7E7E7;
+	}
+	.floor03 .sortGoogs li{
+		margin-right:40px;
+		font-weight: 400;
+		font-size: 15px;
+	}
+	.floor03 .sortGoogs >span{
+		border:5px solid #000;
+		border-right-color:transparent;
+		border-left-color:transparent;
+		border-bottom-color:transparent;
+		position:absolute;
+		right:45px;
+		top:5px;
+	}
+	.floor03 .act_goods_list .act_goods{
+		width:25%;
+		padding:0 2%;
+		border: 0.5px solid transparent;
+		position:relative;
+		height:440px;
+		border-bottom: 1px solid #E7E7E7;
+	}
+	.floor03 .act_goods_list .act_goods .price{
+		font-size: 24px;
+	}
+	.floor03 .act_goods_list .act_goods .act_goods_title{
+		font-size: 15px;
+		font-family: 'Hiragino Sans GB', 'Microsoft Yahei', Arial, sans-serif;
+		margin-top:10px;
+		text-align: center;
+	}
+	.floor03 .act_goods_list .act_goods .total_num{
+		height:3px;
+		background:#555555;
+		margin:5px 0;
+	}
+	.floor03 .act_goods_list .act_goods img{
+		display: block;
+		margin:0 auto;
+	}
+	#act_sort{
+		color:deepskyblue;
+		border: 1px solid deepskyblue;
+		border-radius: 5px;
+	}
+ 	 .query{
+		font-size: 17px;
+		width:84%;
+		height:35px;
+		border-radius: 3px;
+		background-image: linear-gradient(to bottom,#F7DEA0,#F0C24D);
+		position:absolute;
+		bottom: 20px;
+		outline: 0;
+		border:1px solid #846A29;
+		
+	}
+
+
+/*********floor04的样式****************/
+	.floors{
+		border:0.2px solid transparent;
+		margin: 7px 0;
+		margin-top: 50px;
+	}
+	.floors .floors_say{
+		font-size: 20px;
+		font-weight: 700;
+		line-height: 40px;
+		padding:0 40px;
+	}
+	.floors .floors_header_sort .floors-ySort{
+		margin-top:10px;
+		height:20px;
+		border-left:2px solid #808080;
+	}
+	.floors .floors_header_sort .floors-ySort li{
+		height:20px;
+		font-size: 15px;
+		line-height: 20px;
+		padding: 0 8px;
+	}
+	.floors .floors_left{
+		width:80%;
+		border:0.2px solid transparent;
+	}
+	.floors .floors_right{
+		width:20%;
+		border:0.2px solid transparent;
+	}
+	.floors .floors_left div{
+		width: 25%;
+		height:257px;
+	}
+	.floors .floors_right div{
+		width:100%;
+		border:0.1px solid transparent;
+		height:257px;
+		text-align: left;
+	}
+	.floors .floors-product{
+		text-align:center;
+	}
+	.floors .floors-product p{
+		margin-top:53px;
+		margin-bottom:10px;
+	}
+	.floors .floors-product img{
+		margin-top:10px;
+	}
+	.floors .floors-product .floors_left_1{
+		font-size:25px;
+		font-weight: 600;
+	}
+	.floors .floors-product .floors_left_2{
+		font-size:30px;
+		font-weight: 700;
+	}
+	.floors .floors-product .floors_right div{
+		padding-left:25px;
+	}
+	.floors .floors-product .floors_right div ul:last-child{
+		position:relative;
+		left:42px;
+	}
+	.floors .floors-product .floors_right div ul{
+		margin-top:15px;
+	}
+	.floors .floors-product .floors_right div li{
+		font-size:17px;
+		font-weight: 500;
+		margin:8px 0;
+	}
+
+
+/**********main right的样式*****/
+	.goods_list>.right{
+		text-align:center;
+	}
+	.goods_list>.right div{
+		margin-bottom: 25px;
+	}
+
+/************login**************/
+	.login{
+		position:relative;
+		height:200px;
+		border-top:1px solid #F3F3F3;
+		border-bottom:1px solid #F3F3F3;
+		text-align: center;
+	}
+	.login p:first-child{
+		text-align:left;
+		font-size: 25px;
+	}
+	.login p:nth-child(2){
+		font-weight: bold;
+		margin-top: 35px;
+	}
+	.login button{
+		width:20%;
+		position:absolute;
+		top:45%;
+		left: 40%;
+		cursor: pointer;
+	}
+	.login :last-child{
+		margin-top:4%;
+	}
+/*********底部********************/
+	#footer{
+		margin-top:50px;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

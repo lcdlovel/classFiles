@@ -1,0 +1,90 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+ </head>
+ <body>
+  <table border="1">
+		<thead>
+			<tr>
+				<th>登录名</th>
+				<th>电话</th>
+				<th>邮箱</th>
+				<th>用户名</th>
+				<th>操作</th>
+			</tr>
+		</thead>
+		<tbody id="show-body"></tbody>
+	</table>
+
+	<script src="00-common.js"></script>
+	<script>
+		/**
+		 * 1、使用 AJAX 获取所有用户信息，并显示在table中
+		 */
+		function loadUsers(){
+			//1、获取xhr
+			var xhr=getXhr();
+			//2、创建请求
+			xhr.open("get","04-user-list.php",true);
+			//3、设置回调
+			xhr.onreadystatechange=function(){
+				if(xhr.readyState==4&&xhr.status==200){
+					//1、接收响应数据并转换成JS数组
+					var list=JSON.parse(xhr.responseText);
+					//2、循环遍历数组
+					var html="";
+					for(var i in list){
+						//获取一个 user 对象
+						var user=list[i];
+						html +="<tr>";
+							html+="<td>"+user.uname+"</td>";
+							html+="<td>"+user.phone+"</td>";
+							html+="<td>"+user.email+"</td>";
+							html+="<td>"+user.user_name+"</td>";
+							html+="<td>";
+								html+="<a href='06-update-user.php?uid="+user.uid+"'>修改</a>";
+								html+="<a href='javascript:deleteUser("+user.uid+")'>删除</a>";
+							html+="</td>";
+						html +="</tr>";
+					}
+					$("show-body").innerHTML=html;
+
+				}
+			}
+			//4、发送请求
+			xhr.send(null);
+		}
+		
+		/**
+		 * 2、使用 AJAX 的方式删除指定用户
+		 * 参数 ：uid ，要删除用户的 uid 值
+		 */
+		function deleteUser(uid){
+			//1、创建xhr
+			var xhr = getXhr();
+			//2、创建请求
+			xhr.open("get","05-delete-user.php?uid="+uid,true);
+			//3、设置回调
+			xhr.onreadystatechange=function(){
+				if(xhr.readyState==4&&xhr.status==200){
+					if(xhr.responseText=="0"){
+						alert("删除失败");
+					}else{
+						alert("删除成功");
+						loadUsers();
+					}
+				}
+			}
+			//4、发送请求
+			xhr.send(null);
+		}
+
+		/*网页加载时要执行的操作*/
+		window.onload=function(){
+			loadUsers();
+		}
+	</script>
+ </body>
+</html>

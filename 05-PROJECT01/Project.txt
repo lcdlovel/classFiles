@@ -1,0 +1,33 @@
+1、实现对用户的注册操作（非AJAX）（25分钟）
+	1、提供一个 register.html 页面
+		提供一个表单以及若干表单控件
+		uname - 登录名 - 文本框(type=text)
+		upwd - 登录密码-密码框(type=password)
+		cpwd - 确认密码-密码框(type=password)
+		email-邮箱 - 电子邮件(type=email)
+		phone-电话 - 电话号码(type=text)
+		user_name - 用户名 - 文本框(type=text)
+		gender - 性别 - 下拉框 (<select>)
+		注册按钮 (type="submit")
+	2、提供一个 register.php 页面
+		接收 register.html 中提交的数据，并且插入到数据库以及给出相应提示
+2、实现对登录名称的重复性验证操作(使用AJAX)(20分钟)
+	1、提供一个php ： 02-checkuname.php
+	2、02-checkuname.php中
+		1、验证用户是否已经存在于数据库，并给出提示
+		2、将提示显示在 "用户名称" 控件后
+3、完成用户登录的验证操作(使用AJAX)(作业)
+	1、提供一个 03-login.html
+		提供三个控件
+			1、用户名称 - 文本框
+			2、用户密码 - 密码框
+			3、登录按钮 - 普通按钮
+		将响应结果通过 警告框 的方式显示在页面上即可
+	2、提供一个 03-checkLogin.php
+		1、接收 03-login.html中提交过来的 用户名 和 密码
+		2、到数据库中验证 用户名 和 密码是否存在
+		3、将 验证结果 响应给客户端
+4、在 user-list.html 中，显示所有用户的信息(使用AJAX,JSON)(作业)
+	1、创建页面 04-user-list.html
+	2、获取用户信息的(uid,uname,phone,email,user_name) 显示在一个表格中,具体表格参见图-1
+	

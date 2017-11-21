@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        svg,canvas{
+            background: #ddd;
+        }
+    </style>
+</head>
+<body>
+    <h1>使用第三方绘图库--Two.js</h1>
+    <div id="box"></div>
+    <script src="two.min.js"></script>
+    <script>
+        //1:创建2D绘图对象
+        var options = {
+            width:800,           //画布宽度
+            height:400,          //画布高度
+            type:Two.Types.svg  //画布类型
+        };
+        var two = new Two(options).appendTo(box);
+        //2:绘制圆形
+        var circle = two.makeCircle(72, 100, 50);
+        //3:绘制矩形
+        var rect = two.makeRectangle(213, 100, 100, 100);
+        //4:更新DOM树
+        two.update();
+    </script>
+</body>
+</html>

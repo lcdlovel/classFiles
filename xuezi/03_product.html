@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+	<link rel="stylesheet" href="base.css">
+	<style>
+	#header,#shop_details,#recommended,#iteminfo,#preview,#right_details,#left-if,#right-if{
+		min-height:300px;
+	}
+	#header{background:#147}
+	#shop_details{background:#362}
+	#recommended{background:#456}
+	#iteminfo{background:#123}
+	#preview{background:#444;float:left;width:500px}
+	#right_details{background:#555;float:right;width:400px}
+	#left-if{background:#021;float:left;width:750px}
+	#right-if{background:#032;float:right;width:190px}
+	</style>
+ </head>
+ <body>
+ <div class="main">
+<!--头部:    -->
+	<div id="header"></div>
+<!--商品预览  -->
+	<div id="shop_details">
+	<!--左侧 	 -->
+		<div id="preview"></div>
+	<!--右侧  -->
+		<div id="right_details"></div>
+		<div class="clear"></div>
+	</div>
+<!--为你推荐 	 -->
+	<div id="recommended"></div>
+<!--商品详情  -->
+	<div id="iteminfo">
+		<div id="left-if"></div>
+		<div id="right-if"></div>
+		<div class="clear"></div>
+	</div>
+<!--底部  -->
+	<div id="footer"></div>
+</div>
+ </body>
+</html>

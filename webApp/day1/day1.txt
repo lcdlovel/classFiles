@@ -1,0 +1,169 @@
+https://electron.atom.io/
+
+移动端课程的安排：
+day1：移动端开发的常见的3种模式以及实现方式
+
+day2/day3: Ionic2
+
+day4/day5/day6: 实现一个移动端的学子商城的项目。
+
+
+学子商城的ng版本：
+采用angular框架，
+1、通过angular中提供的指令和插值表达式来实现组件模板
+
+2、通过router来管理路由（SPA）：建立其地址栏中路由地址和组件之间的映射关系
+const routes:Routes = [
+ {path:'',component:IndexComponent},
+ {path:'index',component:IndexComponent},
+ {path:'list',component:ListComponent},
+ {path:'**',component:NotFoundComponent}
+]
+
+3、实现具体的业务逻辑
+
+3.1 把经常用到的方法或者数据 封装在服务中
+创建一个MyHttp.service.ts,导出的类：MyHttpService
+
+准备在IndexComponent调用服务：
+①import
+②在哪个地方，通过提供商指定需要依赖注入的服务
+
+providers:[MyHttpService]
+
+在组件中：该组件以及它的子组件可以使用该服务的实例
+在模块中:一旦通过提供商注入到模块中，那么模块中所有的组件再去该服务时，无序再去指定providers
+
+③实例化
+constructor(private myHttp:MyHttpService){
+}
+
+④调用服务的对象
+
+3.2 实现具体的业务逻辑之前，明确具体的需求
+
+一切以需求为导向
+
+3.3 遇到常见错误的处理方式
+
+①与服务器端通信的错误
+请求的API接口要正确
+请求API接口时，如果有参数，保证参数的个数和格式要符合要求
+请求来的数据结果 要做一个验证，比如格式、是否为空
+
+network（headers、response）
+
+
+②can't read property 'name' of undefined
+
+是因为操作的对象或者数组，没有有效的值
+
+③DI error
+dependency Injection 
+依赖注入出错
+服务在使用之前有没有通过提供商指定(providers)、所需要用的模块有没有依赖(imports)
+
+④Unhandled Promise rejection: Failed to load ****
+在载入某一个模板或者模板页面时候，出错了，检查
+template、templateUrl有没有正确的进行赋值
+
+⑤奇怪的错误
+单词拼写错误、中英文符号错误、大小写错误
+
+⑥没有指定事件的处理函数
+Unhandled Promise rejection: Template parse errors:
+Empty expressions are not allowed ("
+
+
+
+angular框架的核心知识点：
+
+组件、模块、模板、
+服务、依赖注入、
+元数据、数据绑定、指令、管道
+
+
+list商品列表组件
+
+application 应用程序
+
+IDE：(Intergarted Develop Enviroment 集成开发环境）
+
+前端开发：webStorm、visual studio code...
+Android: AndroidStudio 、Eclipse
+iOS： Xcode
+
+一、移动端开发的常见的3种模式(混合编程非常受欢迎)
+
+1、WebApp 移动端的网页应用程序
+
+采用前端技术：html/css/js，来实现提供了一种类似于原生应用程序体验的网页
+(运行在browser)
+
+很多基于h5的应用程序、移动端的站点（淘宝京东。。）
+
+2、NativeApp 原生应用程序
+
+采用java、oc、swift、kotlin等原生开发的语言，调用由google、apple、microsfot所提供的原生组件和服务进行编程，而生成的可以在手机的操作系统(os:Operating System)中直接运行的应用程序称之为NativeApp
+
+Android/iOS/windowsPhone/BlackBerry
+
+在应用商店（appStore/应用宝/华为应用商店。。）所下载的app，多数都是原生应用程序。
+
+3、HybridApp 混合编程
+采用原生组件 结合着 前端技能进行混合开发，所生成的应用程序 称之为 HybridApp.
+
+常见的实现方案：phonegap/ionic/DCloud/369Cloud..
+
+
+二、准备工作
+混合编程中要使用原生组件，配置下环境。
+iOS？--》iOS模拟器必须要求在macOS
+Android
+
+jetBrains/kotlin/java
+准备Android的开发环境：
+①安装jdk
+java development kit （java开发工具箱）
+
+②安装SDK
+Software development kit （软件开发包）
+
+在Android环境搭建的时候，并不会直接安装SDK，会去安装的是由Google所提供的供新手使用的ADT（Android Developer tools,自带安装好的sdk和eclipse）
+
+http://www.androiddevtools.cn/ 下载Android开发用到的所有的资源
+
+
+eclipse的使用：
+如何显示工具条？ window->show toolbar
+
+设置字体大小？
+window==> preferences -->appereance-->colors and fonts -->basic -->text font 双击进行设置
+
+创建一个模拟器？
+找到工具条中,AndroidVirtualDeviceManager,点击new，在窗口进行设置：
+	①虚拟设备名字：testPhone 
+	②选中device：4'(480*800)
+	③backCamera : emulated
+	④指定sd：512
+
+
+三、第一个Android原生应用程序
+1、Android工程的创建
+①点击eclipse中file --> new  -->AndroidApplicationProject
+②给Android工程指定ApplicationName（会显示在程序列表中） PackageName（区分其它的应用程序
+com.公司或者项目名字简写.应用名字）
+③设置icon图标（显示在程序列表中）
+2、Android工程的使用
+①找到项目，点击右键
+②run as android application
+作为android工程去运行
+了解：（将java进行编译，最终生成一个apk（Android package）结尾的文件，通过一个叫做adb(Android debug bridge)的服务传输给模拟器或者真实手机，自动安装并调用该应用程序）
+练习：
+创建一个android项目，工程名字demo02，包的名字叫做com.tedu.demo02
+运行在模拟器中显示： Welcome to tarena
+
+
+
+
+

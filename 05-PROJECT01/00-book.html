@@ -1,0 +1,117 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+	<script src="common.js"></script>
+	<script>
+		function loadXml(){
+			//1、获取 xhr
+			var xhr = getXhr();
+			//2、创建请求
+			xhr.open("get","00-book.php",true);
+			//3、设置回调
+			xhr.onreadystatechange=function(){
+				if(xhr.readyState==4&&xhr.status==200){
+					var xmlDoc = xhr.responseXML;
+					//解析 xmlDoc
+					var books = xmlDoc.getElementsByTagName("book");
+					var html = "";
+					for(var i=0;i<books.length;i++){
+						//获取数据
+						var book = books[i];
+
+						var name=book.getElementsByTagName("name")[0].innerHTML;
+
+						var price=book.getElementsByTagName("price")[0].innerHTML;
+
+						var author=book.getElementsByTagName("author")[0].innerHTML;
+						
+
+						//拼 tr 的字符串
+						html += "<tr>";
+							html += "<td>"+(i+1)+"</td>";
+							html += "<td>"+name+"</td>";
+							html += "<td>"+price+"</td>";
+							html += "<td>"+author+"</td>";
+						html += "</tr>";
+					}
+					$("show-body").innerHTML=html;
+				}
+			}
+			//4、发送请求
+			xhr.send(null);
+		}
+		/**
+		 * 使用JSON格式显示数据
+		 */
+		function loadJson(){
+			//1、获取 xhr
+			var xhr = getXhr();
+			//2、创建连接
+			xhr.open("get","00-book-json.php",true);
+			//3、设置回调函数
+			xhr.onreadystatechange=function(){
+				if(xhr.readyState==4 && xhr.status==200){
+					//获取响应数据
+					var resText = xhr.responseText;
+					//将 resText 转换成 对象 / 数组
+					var list=JSON.parse(resText);
+					//声明变量 拼 tr 的数据
+					var html="";
+					for(var i in list){
+						var book = list[i];
+						html += "<tr>";	
+							html += "<td>"+(parseInt(i)+1)+"</td>";
+							html += "<td>"+book.bookName+"</td>";
+							html += "<td>"+book.bookPrice+"</td>";
+							html += "<td>"+book.author+"</td>";
+						html += "</tr>";
+					}
+					//将  html 填充到 show-json 的位置处
+					$("show-json").innerHTML=html;
+				}
+			}
+			//4、发送请求
+			xhr.send(null);
+		}
+	</script>
+ </head>
+ <body>
+	<button onclick="loadXml()"> 
+		加载数据(XML) 
+	</button>
+
+	<button onclick="loadJson()">
+		加载数据(JSON)
+	</button>
+
+  <table border="1">
+		<caption>XML格式</caption>
+		<thead>
+			<tr>
+				<th>编号</th>
+				<th>书名</th>
+				<th>价格</th>
+				<th>作者</th>
+			</tr>
+		</thead>
+		<tbody id="show-body"></tbody>
+	</table>
+
+	<table border="1">
+		<caption>JSON格式</caption>
+		<thead>
+			<tr>
+				<th>编号</th>
+				<th>书名</th>
+				<th>价格</th>
+				<th>作者</th>
+			</tr>
+		</thead>
+		<tbody id="show-json"></tbody>
+	</table>
+
+
+ </body>
+</html>

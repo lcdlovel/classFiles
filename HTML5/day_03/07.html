@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        canvas{background-color: aqua}
+    </style>
+</head>
+<body>
+<canvas id="c2"  width="500" height="400"></canvas>
+<script>
+var ctx=c2.getContext("2d");
+var p3=new Image();
+p3.src="img/p3.png";
+p3.onload=function () {
+    ctx.translate(250,200);
+    var x=0;
+    var t=setInterval(function(){
+        ctx.clearRect(-100,-50,500,400);
+        x+=10;
+        ctx.rotate(x*Math.PI/180);
+        ctx.drawImage(p3,-100,-50);
+    },1000);
+    ctx.translate(-250,-200);
+};
+var p2=new Image();
+p2.src="img/p4.png";
+p2.onload=function(){
+    ctx.translate(-250,-200);
+    ctx.translate(250,200);
+    var x=0;
+    var t=setInterval(function(){
+        ctx.clearRect(-100,-50,500,400);
+        x+=10;
+        ctx.rotate(x*Math.PI/180);
+        ctx.drawImage(p2,-100,-50);
+    },100);
+
+};
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

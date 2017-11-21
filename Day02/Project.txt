@@ -1,0 +1,90 @@
+1、实现对用户的注册操作（非AJAX）（25分钟）
+	1、提供一个 register.html 页面
+		提供一个表单以及若干表单控件
+		uname - 登录名 - 文本框(type=text)
+		upwd - 登录密码-密码框(type=password)
+		cpwd - 确认密码-密码框(type=password)
+		email-邮箱 - 电子邮件(type=email)
+		phone-电话 - 电话号码(type=text)
+		user_name - 用户名 - 文本框(type=text)
+		gender - 性别 - 下拉框 (<select>)
+		注册按钮 (type="submit")
+	2、提供一个 register.php 页面
+		接收 register.html 中提交的数据，并且插入到数据库以及给出相应提示
+2、实现对登录名称的重复性验证操作(使用AJAX)(20分钟)
+	1、提供一个php ： 02-checkuname.php
+	2、02-checkuname.php中
+		1、验证用户是否已经存在于数据库，并给出提示
+		2、将提示显示在 "用户名称" 控件后
+3、完成用户登录的验证操作(使用AJAX)(作业)
+	1、提供一个 03-login.html
+		提供三个控件
+			1、用户名称 - 文本框
+			2、用户密码 - 密码框
+			3、登录按钮 - 普通按钮
+		将响应结果通过 警告框 的方式显示在页面上即可
+	2、提供一个 03-checkLogin.php
+		1、接收 03-login.html中提交过来的 用户名 和 密码
+		2、到数据库中验证 用户名 和 密码是否存在
+		3、将 验证结果 响应给客户端
+4、在 user-list.html 中，显示所有用户的信息(使用AJAX,JSON)(作业)
+	1、创建页面 04-user-list.html
+	2、获取用户信息的(uid,uname,phone,email,user_name) 显示在一个表格中,具体表格参见图-1
+*********************2017-8-2*********************
+1、完成用户的删除功能（25分钟）
+	描述：点击删除按钮时，使用AJAX异步提交的方式，将指定用户删除，并给出提示，如果删除成功，刷新用户列表,如果删除失败，则提示"删除失败"
+	1、修改"删除"超链接中的 href
+		<a href="javascript:deleteUser()"></a>
+	2、在 JS 中，创建 deleteUser(uid) 函数
+		功能：删除指定uid的用户
+		参数：uid ，要删除的用户的 uid
+	3、创建 05-delete-user.php
+		接收用户传递过来的 uid 值
+		拼sql语句进行删除
+2、完成用户的修改功能
+	1、点击 "修改" 超链接时，弹出一个新的页面 06-update-user.php ,显示要修改用户的所有信息
+		1、接收被修改用户的 uid
+		2、根据uid的值，到数据库中 获取指定用户的所有信息
+		3、再将查询出来的信息 显示在 网页的表单中的控件里
+		4、允许修改的数据
+			1、登录名 不能修改 ，只读的
+			2、密码，允许修改
+			3、邮箱 允许修改
+			4、电话 允许修改
+			5、用户名称 允许修改
+			6、性别 允许修改
+			7、用户id，不能修改，不能显示，但要作为条件(隐藏域)
+		5、提供修改按钮（提交按钮），点击修改，提交到 update.php 中，进行数据的修改并给出提示（非AJAX）
+3、分页查询
+	1、数据库中查询部分数据
+		select * from xz_user limit 0,5;
+
+		每页能够显示10条数据 
+		第1页：
+			select * from xz_user limit 0,10
+		第2页
+			select * from xz_user limit 10,10
+		第7页
+			select * from xz_user limit 60,10
+		
+		起始记录位置:(想看页数-1)*每页显示条数
+
+		共185 条数据
+		每页 显示 10条
+		共分成 ：19页
+	2、服务器处理程序 要 接收的前端数据
+		1、每页显示的条数 - pageSize
+		2、想看的页数 - currentPage
+4、作业
+	1、在分页基础上，增加一个 文本框到表格的上方，用于接收"每页显示的条数"信息
+	2、根据文本框中的数字，调用服务器程序，显示对应的分页信息
+
+[
+	{uid:1,uname:"sf",gender:0},
+	{uid:1,uname:"sf",gender:0},
+	{uid:1,uname:"sf",gender:0},
+	{uid:1,uname:"sf",gender:0},
+	{"prePage":5,"nextPage":7,"totalPage":11}
+]
+
+	

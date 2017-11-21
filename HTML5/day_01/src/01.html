@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="#">
+   上传头像 <input type="file" name="mypic"> <br>
+   隐藏域不可见  <input type="hidden" name="acl" value="000010-01100-1001">
+    <br>
+    <!--验证简单  \w{1,}@\w{1,}  兼容性差-->
+    邮件地址 <input type="email" name="myemail"> <br>
+    <!--验证简单  \w{1,}:\w{1,} url-->
+    我的网站 <input type="url" name="myurl"> <br>
+    <!--验证简单  \d{1,}  number-->
+    年龄 <input type="number" max="80" min="18" step="2"> <br>
+    <!--没有任何验证 tel -->
+    电话 <input type="tel" name="mytel"> <br>
+    <!--颜色选择器 color-->
+     你喜欢颜色 <input type="color" name="mycolor"> <br>
+    日期 <input type="date" name="mydate"> <br>
+    月份 <input type="month" name="mymonth"> <br>
+    星期 <input type="week" name="myweek"> <br>
+
+    <input type="submit" value="用户注册">
+</form>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body{text-align: center}
+        .container{
+            position: relative;
+        }
+        /*修改按钮*/
+        .ctrl{
+            position: absolute;
+            left:50%;
+            top:50%;
+            margin-left: -60px;
+            margin-top: -60px;
+        }
+        .ctrl img{
+            width:120px;
+            height:120px;
+        }
+        /*广告*/
+        .ad{
+            width:426px;
+            height:303px;
+            position: absolute;
+            left:50%;
+            top:50%;
+            margin-left: -213px;
+            margin-top: -151px;
+        }
+    </style>
+</head>
+<body>
+ <h1>h5新特性---视频播放</h1>
+  <!--最外层元素-->
+  <div class="container">
+      <!--视频-->
+      <video id="v3" src="res/birds.mp4">
+          您的浏览器不支持 video标签
+      </video>
+      <!--广告-->
+      <img src="res/ad.jpg" class="ad"/>
+      <!--播放控制按钮-->
+      <a href="#" class="ctrl">
+          <img src="res/play.png"/>
+      </a>
+  </div>
+ <script>
+      //最外层元素div
+      var container = document.querySelector(".container");
+      //按钮
+      var ctrl = document.querySelector(".ctrl");
+      //按钮中图片
+      var ctrlImg = document.querySelector(".ctrl img");
+      //视频
+      var v3 = document.querySelector("#v3");
+      //1:鼠标移入视频区域显示按钮 11:55~12:00
+      container.onmouseenter = function(){
+         ctrl.style.display = "block";
+      }
+      //2:鼠标移出视频区域隐藏按钮
+      container.onmouseleave = function(){
+          ctrl.style.display = "none";
+      }
+      //3:点击按钮
+      ctrl.onclick = function(e){
+          e.preventDefault();
+          //4:判断当前视频如果暂停状态,播放视频并且修改图片
+          if(v3.paused){
+              v3.play();
+              ctrlImg.src = "res/pause.png";
+          }else{
+          //5:如果当前视频如果播放状态，暂停视频并且修改图片
+              v3.pause();
+              ctrlImg.src = "res/play.png";
+          }
+      }
+      //获取广告图片 9:24--9:28
+      var ad = document.querySelector(".ad");
+      //如果视频播放则隐藏广告图片
+      v3.onplay = function(){
+          ad.style.display = "none";
+      }
+      //如果视频暂停则显示广告图片
+      v3.onpause = function(){
+          ad.style.display = "block";
+      }
+
+
+ </script>
+</body>
+</html>

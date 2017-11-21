@@ -1,0 +1,132 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>header</title>
+	<link rel="stylesheet" href="base.css">
+	<style>
+		#header-top{
+			margin-top:50px;
+		}
+		#logo{
+			float:left;
+		}
+		#top-input{
+			float:left;
+			margin-left:30px;
+		}
+		#top-input div.input-box{
+			float:left;
+			width:413px;
+			height:36px;
+			box-sizing:border-box;
+			border:1px solid #0aa1ed;
+		}
+		#top-input>a{
+			float:left;
+			width:37px;
+			height:34px;
+		}
+		#txtSearch{
+			border:0;
+			outline:0;
+			width:300px;
+			height:32px;
+			box-sizing:border-box;
+			background:#f5f5f5;
+			padding-right:10px;
+		}
+		#top-input .sort-search i{
+			border:7px solid transparent;
+			border-top-color:#bbb;
+			position:relative;
+			top:10px;
+		}
+		
+		#list{
+			margin-top:5px;float:right;
+		}
+		
+		#list li{
+			width:46px;
+			height:20px;
+			line-height:20px;
+			padding-left:5px;
+			text-align:center;
+			float:left;
+		}
+		#list li span{
+			position:relative;
+			top:0;
+			right:-3px;
+		}
+	#nav{
+			margin-top:38px;
+			font-size:16px;		
+		}
+		#nav ul li{
+			margin-right:40px;
+			float:left;
+		}
+	</style>
+ </head>
+ <body>
+ <div class="main">
+  <div id="header-top">
+			<a href="" id="logo">
+				<img src="img/header/logo.png" alt="">
+			</a>
+		<div	id="top-input">
+			<div class="input-box">
+				<input type="text" id="txtSearch">
+				<span class="sort-search">
+					分类搜索<i></i>
+				</span>
+				<a href="">
+					<img src="img/header/search.png" alt="">
+				</a>
+			</div>
+		</div>
+		<ul id="list">
+			<li>
+				<a href="">
+					<img src="img/header/care.png" alt="">
+				</a>
+				<span>|</span>
+			</li>
+			<li>
+				<a href="">
+					<img src="img/header/order.png" alt="">
+				</a>
+				<span>|</span>
+			</li>
+			<li>
+				<a href="">
+					<img src="img/header/shop_car.png" alt="">
+				</a>
+				<span>|</span>
+			</li>
+			<li>
+				<a href="" id="a2">
+					注册
+				</a>
+				<span>|</span>
+			</li>
+			<li>
+				<a href="" id="a1">
+					登录
+				</a>
+			</li>
+		</ul>	
+		<div class="clear"></div>
+	</div>
+	<div id="nav">
+			<ul class="clear">
+				<li><a href="">首页</a></li>
+				<li><a href="">学习用品</a></li>
+				<li><a href="">私人订制</a></li>
+			</ul>
+		</div>
+	</div>
+ </body>
+</html>

@@ -1,0 +1,35 @@
+1、XML
+	1、语法
+		1、声明
+			<?xml version="1.0" encoding="utf-8" ?>
+		2、标签规范
+			1、必须成对
+			2、严格区分大小写
+			3、正确嵌套
+			4、XML属性值必须加 引号
+			5、每个XML文件有且只有一个根元素
+	2、在 JS 中解析XML 文件
+		1、使用 ajax 请求 xml 文件
+			1、获取 xhr 
+			2、创建请求
+				xhr.open("get","xxxx.xml",true);
+			3、回调函数
+				xhr.onreadystatechange=function(){
+					if( ... ){
+						var xmlDoc = responseXML;
+					}
+				}
+			4、发送请求
+		2、解析 xmlDoc
+			var elem=getElementsByTagName("tagName")[0].innerHTML;
+	3、在php中 响应 xml 格式字符串
+		1、拼一个符合xml格式的字符串
+		2、增加一个响应消息头
+			header("Content-Type:application/xml");
+
+
+
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+
+
+<meta charset="utf-8">

@@ -1,0 +1,44 @@
+angular如何解决与服务器端通信时，由于服务器采用session所导致的问题？
+
+两个步骤：
+①在前端请求时，加上属性{withCredentials:true}
+比如：
+  sendRequest(url:string){
+        //a-http-get
+        return this.http.get(url,{withCredentials:true})
+            .map((response: Response) => response.json());
+    }
+②在后台的php文件中，加上两句话：
+header('Access-Control-Allow-Credentials:true');
+header('Access-Control-Allow-Origin:http://localhost:3000');
+
+
+ionic自带的图标：
+https://ionicframework.com/docs/ionicons/
+
+一、button
+ionic自带的颜色：
+	primary 默认，蓝色
+	secondary 绿色
+	danger 红色
+	light 浅灰色
+	dark 黑色
+
+ionic中怎么自定义颜色属性？
+	theme-->variables.scss --> 添加颜色设置
+
+
+按钮如果要符合移动端的展示效果: 
+<button ion-button></button>
+
+指定颜色: color="primary/secondary/danger/light/dark"
+
+round/outline/clear/small/large
+
+带有图标的按钮:
+<button ion-button icon-left/right/only>
+		<ion-icon name=""></ion-icon>
+</button>
+
+
+二、卡片

@@ -1,0 +1,286 @@
+/*该文件只针对01-index.html*/
+/*头部页面样式*/
+		#header{
+			box-sizing:border-box;
+			min-height:110px;
+			margin:50px auto 0;
+			}
+		#header div#logo{
+			float:left;
+		}
+		#header div#search{
+			float:left;
+			margin-left:40px;
+			position:relative;
+			margin-top:3px;
+		}
+		#search input{
+			box-sizing:border-box;
+			width:400px;
+			height:36px;
+			padding:10px;
+			padding-right:150px;
+			border:1px solid #0AA1ED;
+			background:#F5F5F5;
+		}
+		#active{
+			width:97px;
+			position:absolute;
+			height:92px;
+			top:1px;
+			right:36px;
+			background:transparent;
+			text-align:center;
+			font:14px simhei;
+			padding-top:8px;
+		}
+		#search{
+			position:relative;
+			box-sizing:border-box;
+		}
+		#search-img{
+			position:relative;
+			top:-6px;
+		}
+		#search-a{
+			position:absolute;
+			top:0px;
+			left:95px;
+		}
+		#header-top div.rt{
+			width:260px;
+			height:37px;
+			float:right;
+			position:relative;
+		}
+		#header-top div.rt li{
+			width:26px;
+			height:33px;
+			padding:2px 10px;
+			line-height: 33px;
+			float:right;
+		}
+		#header-top div.rt li a{
+			text-align:center;
+		}
+		#header-top div.rt li img{
+			vertical-align:middle;
+		}
+		#list{
+			margin-top:5px;float:right;
+		}
+		
+		#list li{
+			width:46px;
+			height:20px;
+			line-height:20px;
+			padding-left:5px;
+			text-align:center;
+			float:left;
+		}
+		#list li span{
+			position:relative;
+			top:0;
+			right:-3px;
+		}
+
+		#nav{
+			margin-top:38px;
+			font-size:16px;		
+		}
+		#nav ul li{
+			margin-right:40px;
+			float:left;
+		}
+/*banner的样式*/
+		#banner{
+			min-height:384px;
+			margin: 0 auto ;
+			overflow:hidden;
+			position:relative;
+		}
+			#de .s1{
+			display:inline-block;
+			width:35px;
+			height:70px;
+			border-radius:5px;
+			background:#000;
+			opacity:0.3;
+			position:absolute;
+			left:0;top:50%;
+			margin-top:-35px;
+		}
+	/*右箭头的设置*/
+		#de .s2{
+			display:inline-block;
+			width:35px;
+			height:70px;
+			border-radius:5px;
+			background:#000;
+			opacity:0.3;
+			position:absolute;
+			right:0;top:50%;
+			transform:translateY(-50%);
+		}
+		#de .s1:hover{
+			opacity:0.15;
+		}
+		#de .s2:hover{
+			opacity:0.15;
+		}
+		#de img{
+			position:absolute;
+			left:0;right:0;top:0;bottom:0;
+			margin:auto;
+		}
+	/*小圆点的属性设置*/
+		ul{list-style:none;}
+			#circle ul .cir{
+				width:12px;
+				height:12px;
+				border-radius:50%;
+				background:#666;
+				float:left;
+				margin-right:10px;
+			}
+			#circle ul .cir:hover{
+				background:#15D8FB
+			}
+		#circle{
+			position:absolute;
+			left:50%;bottom:5%;
+			margin-left:-44px;
+		}
+/*楼梯floor的样式*/
+		#container{
+			width:960px;
+			margin:0 auto;
+		}
+		#container div{
+			background-color:#e8e8e8;
+			margin-bottom:10px;
+		}
+		#container img:hover{
+			transform:scale(1.1);
+			transition:transform 1.5s; 
+		}
+		#container div:nth-child(1){
+			position:relative;
+			width:545px;
+			height:350px;
+		}
+		#container div:nth-child(1).desc{
+			width: 245px;
+			height: 243px;
+			position: absolute;
+			left: 65px;
+			top:35px;
+		}
+		#container div:nth-child(1) img{
+			position:absolute;
+			top: 40px;
+			right: 30px;
+		}
+		#container p.details{
+			font-size: 12px;
+			margin-bottom: 24px;
+			}
+		#container p.name{
+		  font-size: 32px;
+			color: #333;
+		}
+		#container p.price{
+			font-size: 24px;
+      color: #0AA1ED;
+      margin-bottom: 12px;
+		}
+		#container .view{
+			display: inline-block;
+			width: 130px;
+			height: 40px;
+			line-height: 40px;
+			background: -moz-linear-gradient(top, #27b1f6 0%, #0aa1ed 100%);
+			background: -webkit-linear-gradient(top, #27b1f6 0%, #0aa1ed 100%);
+			background: -o-linear-gradient(top, #27b1f6 0%, #0aa1ed 100%);
+			background: -ms-linear-gradient(top, #27b1f6 0%, #0aa1ed 100%);
+			text-align: center;
+			color: #fff;
+			font-size: 16px;
+			border-radius: 2px;
+			cursor: pointer;
+		}
+		#container div:nth-child(2){
+			position:relative;
+			width:405px;
+			height:350px;
+		}
+		#container div:nth-child(2) img{
+			position:absolute;
+			top:100px;
+			right:13px;
+			}
+		#container div:nth-child(2).desc{
+			width: 217px;
+			height: 200px;
+			position: absolute;
+			top: 40px;
+			left: 24px;
+		}
+		#container div:nth-child(3){
+			position:relative;
+			width:360px;
+			height:300px;
+		}		
+		#container div:nth-child(3) #desc{
+			padding-top:1em;
+			width: 149px;
+			height:139px;
+			position: absolute;
+			top: 60px;
+			left: 5px;
+		}
+		#container div:nth-child(3) img{
+			position: absolute;
+			top: 83px;
+			right: 17px;
+			cursor: pointer;
+				}
+		#container div.product{
+			display:inline-block;
+			vertical-align:middle;
+			width:190px;
+			height:300px;
+			position:relative;
+		}
+		#container div.product a{
+			display:block;
+			margin:auto;
+		}
+		#container div.product p{
+			text-align:center;
+		}
+		#container{
+				display:flex;
+				flex-wrap:wrap;
+				justify-content:space-between;
+		}
+		.floor_top{
+			font-size: 24px;
+    font-weight: bold;
+    border-bottom: 2px solid #d9d9d9;
+    padding-bottom: 4px;
+    margin-bottom: 10px;
+}
+		}
+		.floor_top>img{
+			margin-bottom: -5px;
+			margin-right: 10px;
+		}
+		.floor_top>span{
+			font-size:24px;
+		}
+/*底部的样式*/
+iframe{
+			width:1000px;
+			height:500px;
+		}

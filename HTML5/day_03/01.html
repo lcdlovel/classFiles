@@ -1,0 +1,28 @@
+1.Canvas   绘图
+    渐变对象
+     线性渐变linearGradient
+    径向渐变radialGradient
+    var g=ctxclearLinerGradien(x1,y1,x2,y2);
+    g.addColorStop(offset,color)
+    g.addColorStop(offset,color)
+    .........
+    g.addColorStop(offset,color)
+    ctx.strokeStyle =g;
+    ctx.fill
+3.路径
+    路径:由多个坐标点组成任意形状，路径本身不可见，可用于“描边”“填充”
+    ctx.beginPath（）开始新路径
+    ctx.closePath()闭合当前路径
+    ctx.moveTo(x,y)
+    ctx.lineTo(x,y)
+    ctx.arc(cx,cy,r,start,end)
+    ctx.stroke
+    ctx.fill
+
+变形操作
+canvas 绘图也有变化技术，可以针对于某个图像/图形绘制过程中进行编写
+rotate(弧度)，translate();平移原点
+ctx.rotate(),旋转绘制画笔，轴点画布原点
+ctx.translate(x,y)将整个画布原点平移到指定点
+ctx.save();    保存画笔当前所有变形状态值
+ctx.restore();  恢复画布状态到最近一次保存

@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>登录</title>
+ </head>
+ <body>
+  <p>
+		登录名称：<input type="text" id="uname">
+	</p>
+	<p>
+		登录密码：<input type="password" id="upwd">
+	</p>
+	<p>
+		<button onclick="check_login()">登录</button>
+	</p>
+	<script src="00-common.js"></script>
+	<script>
+		/**
+		 * 1、验证用户名称 和 密码是否存在
+		 */
+		function check_login(){
+			//1、获取 xhr
+			var xhr = getXhr();
+			//2、创建请求
+			xhr.open("post","03-login.php",true);
+			// 修改请求消息头
+			xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+			//3、设置回调函数
+			xhr.onreadystatechange = function(){
+				if(xhr.readyState==4 && xhr.status==200){
+					if(xhr.responseText == "1"){
+						alert("登录成功");
+						//可以执行 登录成功 以后的操作
+					}else{
+						alert("登录失败");
+						//可以执行 登录失败 以后的操作
+					}
+				}
+			}
+			//4、发送请求
+			var uname=$("uname").value;
+			var upwd=$("upwd").value;
+			var params = "uname="+uname+"&upwd="+upwd;
+			xhr.send(params);
+		}
+	</script>
+ </body>
+</html>

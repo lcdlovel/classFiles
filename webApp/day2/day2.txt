@@ -1,0 +1,279 @@
+ionic使用常见错误：
+1、忘记声明
+Uncaught (in promise): Error: No component factory found for Demo01BasicPage. Did you add it to @NgModule.entryComponents? 
+
+app.module.ts中引入页面类，在entryComponents和declarations声明
+
+2、是一个警告，提示引入了一个类，但是没有使用
+tslint: ...:/xampp/htdocs/Framework_codes/webApp/template/template/src/app/app.component.ts, line: 9
+Unused import: 'Demo02AlertPage
+
+
+
+复习：
+ng中router的5个知识点：
+1、通过ng来实现SPA的基本步骤
+	①创建一个自定义的模块app.router.ts，导出了一个模块类，AppRoutingModule
+	指定依赖于RouterModule
+
+	②在该文件中指定一个对象数组
+	const routes:Routes = [
+		{path:'',component:IndexComponent},
+		...
+	]
+
+	③在app.module.ts指定依赖于AppRoutingModule
+
+	④测试对应的路由地址能否正确加载设置过的组件
+
+
+
+2、跳转方式
+	方式1:js
+	import {Router} from '@angular/router'
+	constructor(private myRouter:Router){
+		
+	}
+	this.myRouter.navigate/navigateByUrl
+
+	方式2：routerLink
+	<a routerLink=“/index”></a>
+	<button routerLink=“/index”></button>
+
+	方式3：返回上一页
+	import {Location} from '@angular/common'
+
+	constructor(private myLocation:Location){
+	
+	}
+	
+	this.myLocation.back();
+
+3、传参基本步骤
+	两种方式：
+	方式1 借助于url
+	①明确发送方和接受方
+	②配置接收方的路由地址
+	{path:'detail/:id',component:DetailComponent}
+	③接收参数
+	import {ActivatedRoute} from '@angular/router'
+	
+	constructor(private myAR:ActivatedRoute){}
+	
+	this.myAR.params.subscribe((data:any)=>{
+		//data就是接收到的参数：对象
+		//data.id
+	})
+
+	④发送参数
+	<a routerLink="/detail/5">
+	this.navigateByUrl('/detail/5')
+
+	方式2 无需配置接收方路由
+	①明确发送方和接受方
+	②接收参数
+	③发送参数
+	<a [routerLink]="['/detail',{id:myId}]">
+	this.navigate(['/detail',{id:5}])
+
+4、路由嵌套
+	mail:
+		inbox/outbox
+	①配置准备嵌套其它组件的组件的容器
+	<router-outlet></router-outlet>
+	②给要嵌套的组件 配置路由
+	{
+		path:'mail',
+		component:MailComponent,
+		children:[
+			{path:'',component:InboxComponent},
+			{path:'inbox',component:InboxComponent},
+			{path:'Outbox',component:OutboxComponent},
+		]
+	}
+
+	注意事项：
+	需要导航到发件箱
+	routerLink="/mail/outbox"
+
+5、路由守卫
+
+守卫某个路由地址能否访问，比如：userCenter
+
+①将路由守卫 定义在一个服务中
+CanEnterService
+在该服务中要实现一个接口canActivate，如果该接口的返回值为true意味着允许访问，否则就不能访问（可以在此去跳转到某个页面进行处理）
+
+②将服务 在模块中 通过providers依赖注入到整个模块，
+在该模块中，任何一个组件都可以使用该路由守卫
+③
+{
+		path:'mail',
+		component:MailComponent,
+		canActivate:[CanEnterService]
+	}
+
+管道:
+date/percent/number/currency/slice/uppercase/lowercase/json....
+
+自定义管道
+transform
+
+自定义指令：
+	import {ElementRef} from '@angular/core'
+	constructor(private elRef:ElementRef){
+	}
+
+	this.elRef.nativeElement.style.*** = "";
+
+自定义服务：服务是常用的方法的封装，主要是为了重用很多的业务逻辑，在使用服务的过程中，配置providers指定依赖注入该服务
+
+
+移动端的3种常见开发模式、搭建Android的开发环境、完成Android工程的创建和使用
+
+
+
+一、第一个HybridApp
+
+创建Android工程之后，如何添加权限？
+AndroidManifest.xml--》permissions --> add -->选中最后一个uses permission -->右侧下拉菜单，选中需要用到的权限。
+
+Android工程的目录结构：
+src: 存储的是java文件
+assets:资源文件，比如要混编用到的html/css/js
+res/layout: 布局文件 activity_main.xml
+AndroidManifest.xml文件中，包含版本号、权限的设置、图标的设置..
+
+基本步骤：
+①编写前端代码，完成指定的功能，保证测试是没问题
+②创建一个Android项目
+③将前端代码拷贝到Android工程的assets目录
+④调用原生组件(WebView)来加载前端代码
+3行java代码
+ 步骤1：创建WebView类型的变量
+ WebView wv = new WebView(getApplicationContext());
+ 步骤2：让wv载入前端代码
+ wv.loadUrl("file:///android_asset/demo01.html");
+ 步骤3：将载入了前端页面的wv 设置为当前的内容视图
+ setContentView(wv);
+
+ 练习：创建一个HybridApp
+ 要求在应用中实现：p button,点击button，隐藏p
+
+如果混合编程应用程序 要想执行js:
+
+wv.getSettings().setJavaScriptEnabled(true);
+
+
+二、Ionic概述
+
+为什么讲Ionic？因为所实现的混合编程app，已经能够在移动端的os去运行，但是整体页面效果和真正的原生的体验有点距离，可以使用Ionic这个移动端的框架。
+
+常见的移动端的框架 :Ionic/jQueryMobile/SenchaTouch。。。
+
+what？ 用来构建移动端应用程序的开源框架
+when? 用在任何一个需要实现移动端效果的应用程序
+why?
+	①成本低，可以使用前端技术来轻松编写出跨平台运行的应用程序
+	②Ionic框架基于Angular、Cordova来实现的
+	③支持es6、ts
+	④强大的命令行工具的支持
+
+how？搭建开发环境
+
+	①通过npm去安装ionic
+	npm install -g cordova ionic
+
+	②通过ionic指令去创建官网所提供的模板项目
+	ionic start myApp blank/tabs/sidemenu
+
+	③运行项目
+	cd myApp
+	ionic serve
+
+
+准备工作：
+1、Ionic_For_Stu.zip解压缩，里头有个压缩template.zip文件，
+
+2、将这个压缩包放到c/xampp/htdocs/Framewrok_Codes/WebApp/这个位置，在当前文件夹中解压缩该压缩包
+
+3、打开visualStudioCode，通过点击右上角的文件，选择打开文件夹，找到对应的目录
+
+
+如果电脑执行ionic出错，怎么解决？
+①将cmd.rar压缩包 解压缩到c/xampp/htdocs/Framewrok_Codes/WebApp/
+②拷贝ionic.cmd所在的文件夹的路径
+C:\xampp\htdocs\Framework_codes\webApp\cmd\cmd
+③配置环境变量
+电脑桌面，选中计算机，点击右键，查看属性，系统高级设置 --》 环境变量 --》系统Path，-->编辑，在值的最后变加上分号，在分号将ionic.cmd所在的文件夹路径信息粘贴在分号后边
+
+做好准备工作之后，通过visual studio code,打开了放在c盘目录的template文件夹，通过ctrl+`,启动了终端，在终端中输入的指令:ionic serve ,可以启动开发服务器，端口号默认8100
+
+
+
+三、启动开发服务器时，为什么显示是当前页面？
+
+步骤1：找到index.html
+
+步骤2：引入了main.js文件，对应的是app目录main.ts
+发现启动了模块AppModule
+
+步骤3：在AppModule中，指定要启动来自于ionic-angular中的IonicApp，而且由于在imports指定了
+将MyApp作为模块的根组件
+
+步骤4：在app.component.ts中已经通过rootPage来指定要显示的组件是HelloIonicPage，那么该页面就是当前所显示的页面
+
+
+四、ionic的组件的使用
+ionc serve -l
+
+注意：Ionic并不会直接创建很多个组件，通过创建page指定项目中各个页面，比如说index/detail/list....
+
+
+
+1、完成page页面的创建
+在vs(Visual studio code)打开新的终端，输入指令：
+ionic g page demo01-basic
+
+执行之后，在pages目录创建一个文件夹demo01-basic,在这个文件夹中有4个文件，
+demo01-basic.ts 一个页面（可以定义数据、方法） demo01-basic.html指定页面要显示的模板内容
+
+2、page页面怎么使用
+①将page页面导出的类，比如Demo01BasicPage;
+在app.module.ts进行声明:declarations/entryComponetns
+
+②找到app.component.ts,引入Demo01BasicPage，设置rootPage=Demo01BasicPage
+
+
+五、AlertController
+步骤1：引入
+import {AlertController} from 'ionic-angular'
+
+步骤2：实例化
+constructor(public alertCtrl:AlertController){}
+
+步骤3：创建窗口去显示
+let myAlert = this.alertCtrl.create({
+	title:'',
+	subTitle:'',
+	message:'',
+	buttons:[]
+})
+myAlert.present();
+（17:10 - 17:30）
+练习：创建一个page demo03-myalert
+页面效果：输入框，按钮，在点击按钮时候，将用户输入的数据通过弹窗显示。
+
+
+alert/prompt/confirm
+
+每日一练：
+
+创建一个page demo04-alerts
+
+在视图中，放上一个按钮，点击按钮时，
+显示一个prompt窗口，要求输入手机号，点击ok
+显示一个confirm窗口，ok/cancel,点击ok，
+显示一个alert窗口：
+	验证码已经发送到手机:用户输入的手机号
+

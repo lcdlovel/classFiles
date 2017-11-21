@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>商品信息</title>
+	<link rel="stylesheet" href="base.css">
+	<style>
+	/*头部样式*/
+			#header iframe{
+				width:1000px;
+				height:160px;
+			}
+	/*p的样式	*/
+		#banner{
+			min-height:390px;
+			
+		}
+	/*主体样式*/
+			#product{
+				min-height:400px;
+				background:#010;
+			}
+			#product-list{
+				min-height:400px;		
+			}
+			#product-list .salc_top{
+				font:16px simhei;
+				width:750px;
+				box-sizing:border-box;
+				height:40px;
+				padding-left:20px;
+				line-height:40px;
+				color:#808080;
+				background:-webkit-linear-gradient(top, #f0f0f0 0%,#e0e0e0 100%);
+			}
+			#plist{
+				width:750px;
+				min-height:400px;
+				padding-top:16px;
+				padding-left:16px;
+				float:left;
+				box-sizing:border-box;
+			}
+			#plist:after{
+				content:"";
+				display:block;
+				clear:both;
+			}
+			
+			#plist .product{
+				float:left;
+				width:230px;
+				height:370px;
+				border:1px solid #f0f0f0;
+				margin-right:14px;
+				box-sizing:border-box;
+				position:relative;
+			}
+			#plist .product img{
+				cursor:pointer;
+				width:230px;
+				height:230px;
+			}
+			#plist .product img:hover{
+				transform:scale(1.1);
+				transition:transform 1s ;
+			}
+			#plist .product .price{
+				font-size:22px;
+				color:#0AA1E0;
+				font-weight:bold;
+			}
+			#plist .product .title{
+				font:12px "microsoft yahei";
+				word-break:break-all;
+			}
+			#plist .reduc,#plist .add{
+				display:inline-block;
+				line-height:24px;
+				vertical-align:middle;
+				font-size:32px;
+				width:24px;
+				height:24px;
+				text-align:center;
+				color:#fff;
+				background:-webkit-linear-gradient(top,#f0f0f0 0%,#e0e0e0 100%)
+			}
+			#plist input{
+				width:25px;
+				height:24px;
+				padding-left:15px;
+				border:none;
+			}
+			#plist .position{
+				position:relative;
+			}
+			#plist .addcart{
+				font:14px simhei;
+				width:100px;
+				height:32px;
+				line-height:32px;
+				position:absolute;
+				top:-4px;
+				right:0px;
+				background:-webkit-linear-gradient(top,#27b1fb 0%,#0aa1ed 100%);
+				border-radius:2px;
+				color:#fff;
+				margin-right:10px;
+				cursor:pointer;
+				text-align:center;
+			}
+
+			#product-list .page{
+				padding-right:20px;
+				text-align:right;
+				color:#ccc;
+				background:-webkit-linear-gradient(top, #f0f0f0 0%,#e0e0e0 100%);
+				float:left;
+				width:750px;
+				height:40px;
+				box-sizing:border-box;
+			}
+			#notice-board{
+				position:relative;
+				width:200px;
+				min-height:400px;
+				float:right;
+			}
+			#notice-board	div:nth-child(1){
+				font:16px simhei;
+				width:180px;
+				position:absolute;
+				right:0px;
+				top:15px;
+				box-sizing:border-box;
+				height:40px;
+				padding-left:20px;
+				line-height:40px;
+				color:#808080;
+				background:-webkit-linear-gradient(top, #f0f0f0 0%,#e0e0e0 100%);
+			}
+			#notice-board div:nth-child(2){
+				position:absolute;
+				right:0px;
+				top:60px;
+				width:180px;
+				height:230px;
+				font:14px "microsoft yahei";
+				background:#fff;
+			}
+	/*底部	*/
+		iframe{
+				width:1000px;
+				height:500px;
+			}
+	</style>
+</head>
+<body>
+<div class="main">
+<!--头部: id="header"-->
+	<div id="header">
+	<iframe src="header.html" frameborder="0">
+	</iframe></div>
+<!--p	id="banner"    -->
+	<p id="banner">
+	<img src="img/index/index_guild.png" alt="">
+	</p>
+<!--主体 product-list-->
+	<div id="product-list">
+		
+		
+		<!--left id=plist 750px 	 -->
+			<div id="plist">
+			<div class="salc_top">笔记本电脑</div>
+			<div class="product">
+				<a href=""><img src="img/product/md/57b12a31N8f4f75a3.jpg" alt=""></a>
+				<div>
+					<p class="price">￥6988.00</p>
+					<a class="title" title="Apple MacBook Air 13.3英寸笔记本 银色(Core i5 处理器/8GB内存/128GB SSD闪存 MMGF2CH/A)">Apple MacBook Air 13.3英寸笔记本 银色(Core i5 处理器/8GB内存/128GB SSD闪存 MMGF2CH/A)</a>
+					<div  class="position">
+						<span class="reduc ">-</span>
+						<input type="text" value="1" class="if">
+						<span class="add ">+</span>
+						<div class="addcart">加入购物车</div>
+					</div>
+				</div>
+			</div>
+			<div class="product">
+				<a href=""><img src="img/product/md/5913f8ffN49fa143c.jpg" alt=""></a>
+				<div>
+					<p class="price">￥5999.00</p>
+					<a href="" class="title" title="戴尔DELL灵越游匣15PR-5645B 15.6英寸游戏笔记本电脑(i5-7300HQ 8G 128GSSD+1T GTX1050 4G独显 FHD)黑">戴尔DELL灵越游匣15PR-5645B 15.6英寸游戏笔记本电脑(i5-7300HQ 8G 128GSSD+1T GTX1050 4G独显 FHD)黑</a>
+					<div class="position">
+						<span class="reduc">-</span>
+						<input type="text" value="1" class="if">
+						<span class="add">+</span>
+						<div class="addcart">加入购物车</div>	
+					</div>
+				</div>
+			</div>
+			<div class="product">
+				<a href=""><img src="img/product/md/57bbc38eN9def8042.jpg" alt=""></a>
+				<div>
+					<p class="price">￥6599.00</p>
+					<a href="" class="title" title="戴尔DELL灵越燃7000 R1725G 14.0英寸轻薄窄边框笔记本电脑(i7-7500U 8G 128GSSD+1T 940MX 2G独显 FHD)金">戴尔DELL灵越燃7000 R1725G 14.0英寸轻薄窄边框笔记本电脑(i7-7500U 8G 128GSSD+1T 940MX 2G独显 FHD)金</a>
+					<div class="position">
+						<span class="reduc">-</span>
+						<input type="text" value="1" class="if">
+						<span class="add">+</span>
+						<div class="addcart">加入购物车</div>	
+					</div>
+				</div>
+			</div>
+			<div class="product">
+				<a href=""><img src="img/product/md/57b12a31N8f4f75a3.jpg" alt=""></a>
+				<div>
+					<p class="price">￥8268.00</p>
+					<a href="" class="title" title="Apple MacBook Air 13.3英寸笔记本 银色(Core i5 处理器/8GB内存/256GB SSD闪存 MMGG2CH/A)">Apple MacBook Air 13.3英寸笔记本 银色(Core i5 处理器/8GB内存/256GB SSD闪存 MMGG2CH/A)</a>
+					<div class="position">
+						<span class="reduc">-</span>
+						<input type="text" value="1" class="if">
+						<span class="add">+</span>
+						<div class="addcart">加入购物车</div>	
+					</div>
+				</div>
+			</div>
+			<div class="product">
+				<a href=""><img src="img/product/md/5913f8ffN49fa143c.jpg" alt=""></a>
+				<div>
+					<p class="price">￥6999.00</p>
+					<a href="" class="title" title="戴尔DELL灵越游匣15PR-5745B 15.6英寸游戏笔记本电脑(i7-7700HQ 8G 128GSSD+1T GTX1050 4G独显 FHD)黑">戴尔DELL灵越游匣15PR-5745B 15.6英寸游戏笔记本电脑(i7-7700HQ 8G 128GSSD+1T GTX1050 4G独显 FHD)黑</a>
+					<div class="position">
+						<span class="reduc">-</span>
+						<input type="text" value="1" class="if">
+						<span class="add">+</span>
+						<div class="addcart">加入购物车</div>	
+					</div>
+				</div>
+			</div>
+			<div class="product">
+				<a href=""><img src="img/product/md/584b5678Nbc9f1e70.jpg" alt=""></a>
+				<div>
+					<p class="price">￥4699.00</p>
+					<a href="" class="title" title="联想(ThinkPad)轻薄系列E470c(20H3A004CD)14英寸笔记本电脑(i5-6200U 8G 500G 2G独显 Win10)黑色">联想(ThinkPad)轻薄系列E470c(20H3A004CD)14英寸笔记本电脑(i5-6200U 8G 500G 2G独显 Win10)黑色</a>
+					<div class="position">
+						<span class="reduc">-</span>
+						<input type="text" value="1" class="if">
+						<span class="add">+</span>
+						<div class="addcart">加入购物车</div>	
+					</div>
+				</div>
+			</div>
+			<div class="product">
+				<a href=""><img src="img/product/md/58a2c667Ne2b5cb73.jpg" alt=""></a>
+				<div>
+					<p class="price">￥5699.00</p>
+					<a href="" class="title" title="神舟(HASEE)战神Z6-KP7GT 15.6英寸游戏本笔记本电脑(i7-7700HQ 8G 1T+128G SSD GTX1050 1080P)黑色">神舟(HASEE)战神Z6-KP7GT 15.6英寸游戏本笔记本电脑(i7-7700HQ 8G 1T+128G SSD GTX1050 1080P)黑色</a>
+					<div class="position">
+						<span class="reduc">-</span>
+						<input type="text" value="1" class="if">
+						<span class="add">+</span>
+						<div class="addcart">加入购物车</div>	
+					</div>
+				</div>
+			</div>
+			<div class="product">
+				<a href=""><img src="img/product/md/57e3b072N661cd00d.jpg" alt=""></a>
+				<div>
+					<p class="price">￥4999.00</p>
+					<a href="" class="title" title="小米(MI)Air 13.3英寸全金属超轻薄笔记本(i5-6200U 8G 256G PCIE固态 940MX独显 FHD WIN10)银">小米(MI)Air 13.3英寸全金属超轻薄笔记本(i5-6200U 8G 256G PCIE固态 940MX独显 FHD WIN10)银</a>
+					<div class="position">
+						<span class="reduc">-</span>
+						<input type="text" value="1" class="if">
+						<span class="add">+</span>
+						<div class="addcart">加入购物车</div>	
+					</div>
+				</div>
+			</div>
+			<div class="product">
+				<a href=""><img src="img/product/md/584b5678Nbc9f1e70.jpg" alt=""></a>
+				<div>
+					<p class="price">￥3499.00</p>
+					<a href="" class="title" title="联想(ThinkPad)轻薄系列E480c(20H3A00GCD)14英寸笔记本(i3-6006U 4G 500G 2G独显 Win10)黑色">联想(ThinkPad)轻薄系列E480c(20H3A00GCD)14英寸笔记本(i3-6006U 4G 500G 2G独显 Win10)黑色</a>
+					<div class="position">
+						<span class="reduc">-</span>
+						<input type="text" value="1" class="if">
+						<span class="add">+</span>
+						<div class="addcart">加入购物车</div>	
+					</div>
+				</div>
+			</div>
+			</div>
+		
+		<!--right id=notice-board 190px -->
+			<div id="notice-board">
+				<div>
+					<img src="img/foodstore/foodstore_icon2.png" alt="">商家公告
+			</div>
+			<div>
+				<p>本店推出全网最低价套餐，保证比其他平台的价格要低！</p>
+				<p>不要葱、姜、蒜等这些忌口暂时无法坐不了，敬请谅解！</p>
+				<p>晚上10点以后订餐需另加送餐费2元！谢谢合作！</p>
+			</div>
+			</div>
+		<!--底部：换页  -->
+			<div class="page">
+				
+			</div>
+			<div class="clear"></div>
+	</div>
+<!--底部: id=footer  -->
+	<div id="footer">
+		<iframe src="footer/footer.html" frameborder="0">
+		</iframe>	
+		</div>
+</div>
+	</body>
+</html>

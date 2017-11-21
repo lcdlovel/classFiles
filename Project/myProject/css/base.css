@@ -1,0 +1,38 @@
+/*设置通用样式*/
+body{   
+	
+	font-size: 13px;
+    line-height: 19px;
+    color: #111;
+    font-family: Arial,sans-serif;
+	margin:0;
+	padding:0;
+}
+*{
+	box-sizing:border-box;
+}
+.main{
+	width:100%;
+	margin:0 auto;
+}
+p,h1,h2,h3,h4,h5,h6,ul,ol,dd,li{
+	margin:0;
+	padding:0;
+	list-style:none;
+}
+a,a:active,a:link,a:visited{
+	text-decoration:none;
+	color:#0066c0;
+}
+img{
+	vertical-align:middle;
+}
+.clear:after{
+	content:"";
+	display:block;
+	clear:both;
+}
+.lf{float:left}
+.rt{float:right}
+
+
